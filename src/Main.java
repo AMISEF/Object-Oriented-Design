@@ -1,16 +1,17 @@
 import hotel.Customer;
 import hotel.LuxuryRoom;
+import services.Notifier;
 import services.Reservation;
 import hotel.Room;
 import services.ReservationService;
 
 public class Main {
     public static void main(String[] args){
-        Customer c = new Customer("Ali", "ali@example.com", "Paris");
-        Room r = new LuxuryRoom("203", 150);
-        Reservation res = new Reservation(r, c, 2);
+        Customer customer = new Customer("Ali", "ali@example.com","09124483765", "Paris");
+        Room room = new LuxuryRoom("203", 150);
+        Reservation res = new Reservation(room, customer, 2);
 
         ReservationService service = new ReservationService();
-        service.makeReservation(res, "paypal");
+        service.makeReservation(res, "paypal", Notifier.EMAIL);
     }
 }

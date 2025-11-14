@@ -1,10 +1,10 @@
 package services;
 
 public class ReservationService {
-    private EmailSender emailSender = new EmailSender();
+    private Notifier notifier;
     private PaymentProcessor paymentProcessor = new PaymentProcessor();
 
-    public void makeReservation(Reservation res, String paymentType){
+    public void makeReservation(Reservation res, String paymentType,Notifier notifier){
         System.out.println("Processing reservation for " + res.customer.name);
 
         if(res.customer.city.equals("Paris")){
@@ -26,6 +26,13 @@ public class ReservationService {
         System.out.println("Total: " + res.totalPrice());
         System.out.println("-------------------");
 
-        emailSender.sendEmail(res.customer.email, "Your reservation confirmed!");
+       switch (this.notifier){
+           case EMAIL :
+           EmailSender emailSender = new EmailSender();
+           emailSender.sendEmail(res.customer.email, "Your reservation confirmed!");
+           break;
+           default:
+               System.out.println("There is no Message Provider");
+       }
     }
 }
