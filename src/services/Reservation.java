@@ -1,7 +1,7 @@
 package services;
 
-import hotel.Customer;
-import hotel.Room;
+import models.Customer;
+import models.Room;
 
 public class Reservation {
     public Room room;

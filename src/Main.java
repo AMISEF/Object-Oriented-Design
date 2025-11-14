@@ -1,9 +1,9 @@
 import constants.PaymentMethods;
-import hotel.Customer;
-import hotel.LuxuryRoom;
+import models.Customer;
+import models.LuxuryRoom;
 import constants.Notifier;
 import services.Reservation;
-import hotel.Room;
+import models.Room;
 import services.ReservationService;
 
 public class Main {
